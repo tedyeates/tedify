@@ -1,0 +1,23 @@
+{% extends 'tedify/base.html' %}
+{% load static %}
+
+{% block head %}{% endblock head %}
+{% block title %}Tedify | {{object_name}}{% endblock title %}
+{% block body %}
+<h1>{{object_name}}<h1>
+<div class="container">
+    {% for object in object_list %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{object.name}}</h5>
+            <p class="card-text">{{object.description}}</p>
+            <form action="{{url}}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="{{object_name|lower}}" value="{{object.name}}">
+                <input type="submit" class="btn btn-primary" value="See more">
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

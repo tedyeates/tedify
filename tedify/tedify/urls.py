@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from music.views import GenreViewSet, ArtistViewSet
+from music.views import GenreViewSet, ArtistViewSet, AlbumViewSet
 
 router = routers.DefaultRouter()
 router.register(r'genres', GenreViewSet)
 router.register(r'artists', ArtistViewSet)
+router.register(r'albums', AlbumViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
