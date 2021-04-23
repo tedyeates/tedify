@@ -17,14 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from music.views import GenreViewSet
+from music.views import GenreViewSet, ArtistViewSet
 
 router = routers.DefaultRouter()
 router.register(r'genres', GenreViewSet)
+router.register(r'artists', ArtistViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('music.urls')),
+    path('', include(('music.urls', 'music'), namespace="music")),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
