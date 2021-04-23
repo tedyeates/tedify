@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 class Genre(models.Model):
 
-    name = models.CharField(_("Genre Name"), max_length=50)
+    name = models.CharField(_("Genre Name"), max_length=10)
     description = models.CharField(_("Genre Description"), max_length=100)
 
     class Meta:
@@ -13,6 +13,3 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse("Genres_detail", kwargs={"pk": self.pk})

@@ -4,6 +4,17 @@
 {% block head %}{% endblock head %}
 {% block title %}Tedify | Genres{% endblock title %}
 {% block body %}
-
+<h1>Genres<h1>
+<div class="container">
+    {% for genre in object_list %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{genre.name}}</h5>
+            <p class="card-text">{{genre.description}}</p>
+            <a href="#" class="btn btn-primary">Songs</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock body %}
 
