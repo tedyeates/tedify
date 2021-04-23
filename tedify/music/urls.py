@@ -1,6 +1,9 @@
-from django.urls import path
-from music.views import GenresListView
+from django.urls import path, include
+
+from rest_framework import routers
+
+from music.views import GenreListView
 
 urlpatterns = [
-    path('', GenresListView.as_view(), name='genres')
+    path('', GenreListView.as_view(), name='genres'),
 ]
